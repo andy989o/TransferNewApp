@@ -1,0 +1,30 @@
+#:include kv/progressscreen.kv
+#:include kv/settingsscreen.kv
+#:include kv/supportscreen.kv
+#:include kv/loginscreen.kv
+#:include kv/registerscreen.kv
+#:include kv/trackingscreen.kv
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+GridLayout:
+    cols: 1
+    ScreenManager:
+        transition: NoTransition()
+        id: screen_manager
+        LoginScreen:
+            name: "login_screen"
+            id: login_screen
+        RegisterScreen:
+            name: "register_screen"
+            id: register_screen
+        TrackingScreen:
+            name: "tracking_screen"
+            id: tracking_screen
+        ProgressScreen: 
+            name: "progress_screen"
+            id: progress_screen
+        SupportScreen:
+            name: "support_screen"
+            id: support_screen
+        SettingsScreen:
+            name: "settings_screen"
+            id: settings_screen

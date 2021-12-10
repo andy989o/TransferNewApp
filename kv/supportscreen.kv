@@ -1,0 +1,85 @@
+#:import utils kivy.utils
+
+<SupportScreen>
+    zipcodeInput: zipcodeInput
+    FloatLayout:
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#10828A")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#0E676E")
+                Rectangle:    
+                    size: self.size
+                    pos: self.pos
+            rows: 1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 2, .12
+        Label:
+            # Support Label
+            background_color: 0, 153, 153
+            pos_hint: {"top": 1.04, "left": 1}
+            size_hint: 1, .2
+            text: "Support"
+            bold: True
+            font_size: (root.width**2 + root.height**2) / 13**4
+
+        Label:
+            text:"Zipcode: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.3, 0.12
+
+        TextInput:
+            id: zipcodeInput
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.8}
+            size_hint: 0.3, 0.12
+        Button:
+            text: "Check Zipcode"
+            pos_hint: {"x":0.35, "top":0.6}
+            size_hint: 0.3, 0.12
+            on_press: root.checkZipcode()
+        Button:
+            text: "Health Tips"
+            pos_hint: {"x":0.35, "top":0.4}
+            size_hint: 0.3, 0.12
+            on_press: root.healthTips()
+
+        GridLayout:
+            # Menu Buttons
+            rows: 1
+            pos_hint: {"top": .2, "left": 1}
+            size_hint: 1, .2
+            
+            Button:
+                id: progress_button
+                background_color: 0, 0, 0, 0
+                on_press:
+                    app.change_screen("progress_screen")
+                Image:
+                    source: "icons/progress_icon.png"
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y           
+            Button:
+                background_color: 0, 0, 0, 0
+                on_press:
+                    app.change_screen("support_screen")
+                Image:
+                    id: support_button
+                    source: "icons/support_icon.png"
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y 
+            Button:
+                background_color: 0, 0, 0, 0
+                on_press:
+                    app.change_screen("settings_screen")
+                Image:
+                    source: "icons/settings_icon.png"
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y 

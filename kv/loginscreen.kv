@@ -1,0 +1,60 @@
+#:import utils kivy.utils
+<LoginScreen>:
+    usernameInputLogin: usernameInputLogin
+    passwordInputLogin: passwordInputLogin
+    FloatLayout:
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#10828A")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            
+            rows: 1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .3
+            Image:
+                source: "icons/logo.png"
+        Label:
+            text:"Username: "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.1, "top":0.65}
+            size_hint: 0.4, 0.09
+
+        TextInput:
+            id: usernameInputLogin
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.65}
+            size_hint: 0.4, 0.09
+
+        Label:
+            text:"Password: "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.1, "top":0.5}
+            size_hint: 0.4, 0.09
+
+        TextInput:
+            id: passwordInputLogin
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.5}
+            size_hint: 0.4, 0.09
+
+        Button:
+            pos_hint:{"x":0.45,"y":0.25}
+            size_hint: 0.125, 0.08
+            font_size: (root.width**2 + root.height**2) / 15**4
+            on_press: root.manager.current = 'register_screen'
+            text: "Register"
+        Button:
+            pos_hint:{"x":0.45,"y":0.12}
+            size_hint: 0.125, 0.08
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Login"
+            on_press: root.checkIfDetailsExist()
+                
+
+

@@ -1,0 +1,59 @@
+#:import utils kivy.utils
+<RegisterScreen>
+    usernameInput: usernameInput
+    emailInput: emailInput
+    passwordInput: passwordInput
+    FloatLayout:
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#10828A")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label: 
+            text: "Username: "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.4, 0.09
+
+        TextInput: 
+            id: usernameInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.8}
+            size_hint: 0.4, 0.09
+            
+        Label: 
+            text: "Email: "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.1, "top":0.65}
+            size_hint: 0.4, 0.09
+            
+        TextInput: 
+            id: emailInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.45, "top":0.65}
+            size_hint: 0.4, 0.09
+
+        Label: 
+            text: "Password: "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.1, "top":0.5}
+            size_hint: 0.4, 0.09
+
+        TextInput: 
+            id: passwordInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.5}
+            size_hint: 0.4, 0.09
+
+        Button: 
+            text: "Register"
+            on_press: root.addInfoToDB()
+            pos_hint:{"x":0.45,"y":0.25}
+            size_hint: 0.125, 0.08
+            font_size: (root.width**2 + root.height**2) / 15**4

@@ -1,0 +1,57 @@
+#:import utils kivy.utils
+
+<MyPopup@Popup>
+    auto_dismiss: False
+    
+<TrackingScreen>:
+    urgesInput: urgesInput
+    moneyInput: moneyInput
+    caloriesInput: caloriesInput
+    FloatLayout:
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#10828A")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            text:"Number of Urges (Previous Day): "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.32, "top":0.8}
+            size_hint: 0.15, 0.07
+        TextInput:
+            id: urgesInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.65 , "top":0.8}
+            size_hint: 0.15, 0.07
+        Label:
+            text:"Money (Would Have Spent): "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.32, "top":0.6}
+            size_hint: 0.15, 0.07
+        TextInput:
+            id: moneyInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.65, "top":0.6}
+            size_hint: 0.15, 0.07
+        Label:
+            text:"Calories (Would Have Consumed): "
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint: {"x":0.32, "top":0.4}
+            size_hint: 0.15, 0.07
+        TextInput:
+            id: caloriesInput
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.65, "top":0.4}
+            size_hint: 0.15, 0.07
+
+        Button:
+            pos_hint:{"x":0.43,"y":0.17}
+            size_hint: 0.15, 0.05
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Update"
+            on_release: root.addDataToDB()
